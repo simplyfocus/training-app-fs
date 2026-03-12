@@ -351,7 +351,7 @@ li.dragging{opacity:0.4;}
 @media (orientation: landscape) {
     .main-col{
         position: sticky;
-        top: 0%;
+        top: 10%;
         /*transform: translateY(-50%); /*-----------------------TRANSFORM-----------------------*/
         align-self: flex-start;
     }
@@ -534,5 +534,6 @@ li.dragging{opacity:0.4;}
 *::after {
     box-sizing: border-box;
 }
+
 
 
