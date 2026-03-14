@@ -11,6 +11,8 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="theme-color" content="#8aa5c3" media="(prefers-color-scheme: light)">
     <meta name="theme-color" content="#202547" media="(prefers-color-scheme: dark)">
+    <audio id="alertSound" src="workout10sec.mp3" preload="auto"></audio>
+    <script src="exercise-library.js"></script>
 
     <!-- use Google Poppins for headers -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,9 +25,6 @@
         body { font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; padding: 20px; }
         li { margin-bottom: 6px; }
     </style>
-
-    <audio id="alertSound" src="workout10sec.mp3" preload="auto"></audio>
-    <script src="exercise-library.js"></script>
 </head>
 
 <body>
@@ -45,7 +44,11 @@
                 <h1 class="title-main">Off-ice training</h1>
             </div>
         </div>
-        <div class="day-pill" id="dayName">Monday</div>
+        <div id="pillPlusBackBtn">
+            <div class="day-pill" id="dayName">Monday</div>
+            <button type="button" class="day-pill" id="backBtn" onclick="if (history.length > 1) { history.back(); }">◀ Go back</button>
+        </div>
+        
     </header>
 
     <!-- Timer UI (hidden until an exercise is clicked) style="font-size:28px;font-family:monospace;background:#f7f9fc;padding:8px 14px;border-radius:6px;" -->
@@ -95,6 +98,8 @@ function randomSample(arr, n) {
     return [...arr].sort(() => 0.5 - Math.random()).slice(0, n);
 }
 
+// Back Button (hide unless there's history)
+if (history.length <= 1){document.getElementById("backBtn").classList.add('hidden')}
 
 // ===== Library ===== (already incorporated)
 
@@ -596,5 +601,4 @@ renderList();
 </script>
 
 </body>
-
 </html>
